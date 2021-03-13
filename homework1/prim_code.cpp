@@ -7,10 +7,10 @@ int u,v,w;
  
 void init(){
 	memset(dis,INF,sizeof dis);
-	cin >> n >> m;  //n¸öµã£¬m¸ö±ß 
+	cin >> n >> m;  //nä¸ªç‚¹ï¼Œmä¸ªè¾¹ 
 	for(int i = 1 ; i <= m;i++){
 		cin>> u >> v >> w ;
-		dis[u][v] = dis[v][u] = w;  //ÎŞÏòÍ¼ 
+		dis[u][v] = dis[v][u] = w;  //æ— å‘å›¾ 
 	} 
 	memset(vis,0,sizeof vis);
 }
@@ -18,7 +18,7 @@ void init(){
 void prim(){
 	vis[1] = 1;
 	for(int i=1;i<=n;i++){
-		a[i]=dis[1][i]; //´æÈëºÍ1ÏàÁÚµÄµã
+		a[i]=dis[1][i]; //å­˜å…¥å’Œ1ç›¸é‚»çš„ç‚¹
 		au[i]=1; 
 	}
 //	cout<<"V"<<v<<endl;
@@ -36,15 +36,15 @@ void prim(){
 		cout<<"V"<<u<<"--V"<<v<<endl;
 		ans += minn;
 		for(int j=1;j<=n;j++){
-			if(!vis[j]&&a[j]>dis[v][j]){  //Ñ°ÕÒµãvÏàÁÚµÄ±ß£¬Öµ½ÏĞ¡µÄ¼ÇÂ¼ 
+			if(!vis[j]&&a[j]>dis[v][j]){  //å¯»æ‰¾ç‚¹vç›¸é‚»çš„è¾¹ï¼Œå€¼è¾ƒå°çš„è®°å½• 
 				a[j] = dis[v][j];
-				au[j]=v;  //¼ÇÂ¼¶¥µã 
+				au[j]=v;  //è®°å½•é¡¶ç‚¹ 
 			}
 		}
 	}
 }
 int main(){
-	init();
+    init();
     prim();
     cout<<ans;
     return 0;
